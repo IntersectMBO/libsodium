@@ -41,11 +41,11 @@ crypto_vrf_ietfdraft03_proof_to_hash(unsigned char *beta,
 }
 
 static int
-vrf_verify(const unsigned char *pi,
+vrf_verify(unsigned char *H_string, const unsigned char *pi,
            const unsigned char *alpha, unsigned long long alphalen,
            const ge25519_p3 *Y_point)
 {
-    unsigned char H_string[32], U_string[32], V_string[32], Y_string[32];
+    unsigned char U_string[32], V_string[32], Y_string[32];
     unsigned char cn[32], c[32], s[32];
     unsigned char hram[64], r_string[64];
 
@@ -106,13 +106,14 @@ vrf_verify(const unsigned char *pi,
 
 int
 crypto_vrf_ietfdraft03_verify(unsigned char *output,
+                              unsigned char *H_string,
                               const unsigned char *pk,
                               const unsigned char *proof,
                               const unsigned char *msg, const unsigned long long msglen)
 {
     ge25519_p3 Y;
     if (ge25519_has_small_order(pk) == 0 && ge25519_is_canonical(pk) == 1 &&
-        ge25519_frombytes(&Y, pk) == 0 && (vrf_verify(proof, msg, msglen, &Y) == 0)) {
+        ge25519_frombytes(&Y, pk) == 0 && (vrf_verify(H_string, proof, msg, msglen, &Y) == 0)) {
         return crypto_vrf_ietfdraft03_proof_to_hash(output, proof);
     } else {
         return -1;

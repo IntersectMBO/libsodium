@@ -43,6 +43,7 @@ int crypto_vrf_ietfdraft03_prove(unsigned char *proof,
 
 SODIUM_EXPORT
 int crypto_vrf_ietfdraft03_verify(unsigned char *output,
+                                  unsigned char *H_string,
                                   const unsigned char *pk,
                                   const unsigned char *proof,
                                   const unsigned char *m,
