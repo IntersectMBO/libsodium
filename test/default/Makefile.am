@@ -83,7 +83,7 @@ EXTRA_DIST = \
 	stream4.exp \
 	verify1.exp \
 	vrf.exp \
-	vrf_03.exp \
+	vrf_13.exp \
 	vrf_batchcompat_13.exp \
 	vrf_batchverify \
 	xchacha20.exp
@@ -168,7 +168,7 @@ DISTCLEANFILES = \
 	stream4.res \
 	verify1.res \
 	vrf.res \
-	vrf_03.res \
+	vrf_13.res \
 	vrf_batchcompat_13.res \
 	vrf_batchverify \
 	xchacha20.res
@@ -252,7 +252,7 @@ TESTS_TARGETS = \
 	stream4 \
 	verify1 \
 	vrf \
-	vrf_03 \
+	vrf_13 \
 	vrf_batchcompat_13 \
 	vrf_batchverify
 
@@ -503,8 +503,8 @@ verify1_LDADD             = $(TESTS_LDADD)
 vrf_SOURCE                = cmptest.h vrf.c
 vrf_LDADD                 = $(TESTS_LDADD)
 
-vrf_03_SOURCE                = cmptest.h vrf_03.c
-vrf_03_LDADD                 = $(TESTS_LDADD)
+vrf_13_SOURCE                = cmptest.h vrf_13.c
+vrf_13_LDADD                 = $(TESTS_LDADD)
 
 vrf_batchcompat_13_SOURCE    = cmptest.h vrf_batchcompat_13.c
 vrf_batchcompat_13_LDADD     = $(TESTS_LDADD)

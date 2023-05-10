@@ -156,7 +156,7 @@ am__EXEEXT_3 = aead_aes256gcm$(EXEEXT) aead_aes256gcm2$(EXEEXT) \
 	shorthash$(EXEEXT) sign$(EXEEXT) sodium_core$(EXEEXT) \
 	sodium_utils$(EXEEXT) sodium_version$(EXEEXT) stream$(EXEEXT) \
 	stream2$(EXEEXT) stream3$(EXEEXT) stream4$(EXEEXT) \
-	verify1$(EXEEXT) vrf$(EXEEXT) vrf_03$(EXEEXT) \
+	verify1$(EXEEXT) vrf$(EXEEXT) vrf_13$(EXEEXT) \
 	vrf_batchcompat_13$(EXEEXT) vrf_batchverify$(EXEEXT) \
 	$(am__EXEEXT_1) $(am__EXEEXT_2)
 aead_aes256gcm_SOURCES = aead_aes256gcm.c
@@ -397,9 +397,9 @@ verify1_DEPENDENCIES = $(TESTS_LDADD)
 vrf_SOURCES = vrf.c
 vrf_OBJECTS = vrf.$(OBJEXT)
 vrf_DEPENDENCIES = $(TESTS_LDADD)
-vrf_03_SOURCES = vrf_03.c
-vrf_03_OBJECTS = vrf_03.$(OBJEXT)
-vrf_03_DEPENDENCIES = $(TESTS_LDADD)
+vrf_13_SOURCES = vrf_13.c
+vrf_13_OBJECTS = vrf_13.$(OBJEXT)
+vrf_13_DEPENDENCIES = $(TESTS_LDADD)
 vrf_batchcompat_13_SOURCES = vrf_batchcompat_13.c
 vrf_batchcompat_13_OBJECTS = vrf_batchcompat_13.$(OBJEXT)
 vrf_batchcompat_13_DEPENDENCIES = $(TESTS_LDADD)
@@ -463,7 +463,7 @@ am__depfiles_remade = ./$(DEPDIR)/aead_aes256gcm.Po \
 	./$(DEPDIR)/sodium_version.Po ./$(DEPDIR)/stream.Po \
 	./$(DEPDIR)/stream2.Po ./$(DEPDIR)/stream3.Po \
 	./$(DEPDIR)/stream4.Po ./$(DEPDIR)/verify1.Po \
-	./$(DEPDIR)/vrf.Po ./$(DEPDIR)/vrf_03.Po \
+	./$(DEPDIR)/vrf.Po ./$(DEPDIR)/vrf_13.Po \
 	./$(DEPDIR)/vrf_batchcompat_13.Po \
 	./$(DEPDIR)/vrf_batchverify.Po ./$(DEPDIR)/xchacha20.Po
 am__mv = mv -f
@@ -502,7 +502,7 @@ SOURCES = aead_aes256gcm.c aead_aes256gcm2.c aead_chacha20poly1305.c \
 	secretstream.c shorthash.c sign.c siphashx24.c sodium_core.c \
 	sodium_utils.c sodium_utils2.c sodium_utils3.c \
 	sodium_version.c stream.c stream2.c stream3.c stream4.c \
-	verify1.c vrf.c vrf_03.c vrf_batchcompat_13.c \
+	verify1.c vrf.c vrf_13.c vrf_batchcompat_13.c \
 	vrf_batchverify.c xchacha20.c
 DIST_SOURCES = aead_aes256gcm.c aead_aes256gcm2.c \
 	aead_chacha20poly1305.c aead_chacha20poly13052.c \
@@ -522,7 +522,7 @@ DIST_SOURCES = aead_aes256gcm.c aead_aes256gcm2.c \
 	secretstream.c shorthash.c sign.c siphashx24.c sodium_core.c \
 	sodium_utils.c sodium_utils2.c sodium_utils3.c \
 	sodium_version.c stream.c stream2.c stream3.c stream4.c \
-	verify1.c vrf.c vrf_03.c vrf_batchcompat_13.c \
+	verify1.c vrf.c vrf_13.c vrf_batchcompat_13.c \
 	vrf_batchverify.c xchacha20.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
@@ -1003,7 +1003,7 @@ EXTRA_DIST = \
 	stream4.exp \
 	verify1.exp \
 	vrf.exp \
-	vrf_03.exp \
+	vrf_13.exp \
 	vrf_batchcompat_13.exp \
 	vrf_batchverify \
 	xchacha20.exp
@@ -1088,7 +1088,7 @@ DISTCLEANFILES = \
 	stream4.res \
 	verify1.res \
 	vrf.res \
-	vrf_03.res \
+	vrf_13.res \
 	vrf_batchcompat_13.res \
 	vrf_batchverify \
 	xchacha20.res
@@ -1114,7 +1114,7 @@ TESTS_TARGETS = aead_aes256gcm aead_aes256gcm2 aead_chacha20poly1305 \
 	secretbox7 secretbox8 secretbox_easy secretbox_easy2 \
 	secretstream shorthash sign sodium_core sodium_utils \
 	sodium_version stream stream2 stream3 stream4 verify1 vrf \
-	vrf_03 vrf_batchcompat_13 vrf_batchverify $(am__append_1) \
+	vrf_13 vrf_batchcompat_13 vrf_batchverify $(am__append_1) \
 	$(am__append_2)
 TESTS_LDADD = \
 	${top_builddir}/src/libsodium/libsodium.la
@@ -1275,8 +1275,8 @@ verify1_SOURCE = cmptest.h verify1.c
 verify1_LDADD = $(TESTS_LDADD)
 vrf_SOURCE = cmptest.h vrf.c
 vrf_LDADD = $(TESTS_LDADD)
-vrf_03_SOURCE = cmptest.h vrf_03.c
-vrf_03_LDADD = $(TESTS_LDADD)
+vrf_13_SOURCE = cmptest.h vrf_13.c
+vrf_13_LDADD = $(TESTS_LDADD)
 vrf_batchcompat_13_SOURCE = cmptest.h vrf_batchcompat_13.c
 vrf_batchcompat_13_LDADD = $(TESTS_LDADD)
 vrf_batchverify_SOURCE = cmptest.h vrf_batchverify.c
@@ -1639,9 +1639,9 @@ vrf$(EXEEXT): $(vrf_OBJECTS) $(vrf_DEPENDENCIES) $(EXTRA_vrf_DEPENDENCIES)
 	@rm -f vrf$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(vrf_OBJECTS) $(vrf_LDADD) $(LIBS)
 
-vrf_03$(EXEEXT): $(vrf_03_OBJECTS) $(vrf_03_DEPENDENCIES) $(EXTRA_vrf_03_DEPENDENCIES) 
-	@rm -f vrf_03$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(vrf_03_OBJECTS) $(vrf_03_LDADD) $(LIBS)
+vrf_13$(EXEEXT): $(vrf_13_OBJECTS) $(vrf_13_DEPENDENCIES) $(EXTRA_vrf_13_DEPENDENCIES) 
+	@rm -f vrf_13$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(vrf_13_OBJECTS) $(vrf_13_LDADD) $(LIBS)
 
 vrf_batchcompat_13$(EXEEXT): $(vrf_batchcompat_13_OBJECTS) $(vrf_batchcompat_13_DEPENDENCIES) $(EXTRA_vrf_batchcompat_13_DEPENDENCIES) 
 	@rm -f vrf_batchcompat_13$(EXEEXT)
@@ -1739,7 +1739,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stream4.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/verify1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vrf.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vrf_03.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vrf_13.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vrf_batchcompat_13.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vrf_batchverify.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xchacha20.Po@am__quote@ # am--include-marker
@@ -2449,9 +2449,9 @@ vrf.log: vrf$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-vrf_03.log: vrf_03$(EXEEXT)
-	@p='vrf_03$(EXEEXT)'; \
-	b='vrf_03'; \
+vrf_13.log: vrf_13$(EXEEXT)
+	@p='vrf_13$(EXEEXT)'; \
+	b='vrf_13'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -2718,7 +2718,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/stream4.Po
 	-rm -f ./$(DEPDIR)/verify1.Po
 	-rm -f ./$(DEPDIR)/vrf.Po
-	-rm -f ./$(DEPDIR)/vrf_03.Po
+	-rm -f ./$(DEPDIR)/vrf_13.Po
 	-rm -f ./$(DEPDIR)/vrf_batchcompat_13.Po
 	-rm -f ./$(DEPDIR)/vrf_batchverify.Po
 	-rm -f ./$(DEPDIR)/xchacha20.Po
@@ -2845,7 +2845,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/stream4.Po
 	-rm -f ./$(DEPDIR)/verify1.Po
 	-rm -f ./$(DEPDIR)/vrf.Po
-	-rm -f ./$(DEPDIR)/vrf_03.Po
+	-rm -f ./$(DEPDIR)/vrf_13.Po
 	-rm -f ./$(DEPDIR)/vrf_batchcompat_13.Po
 	-rm -f ./$(DEPDIR)/vrf_batchverify.Po
 	-rm -f ./$(DEPDIR)/xchacha20.Po

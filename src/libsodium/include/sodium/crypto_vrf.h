@@ -10,7 +10,7 @@
 
 #include <stddef.h>
 
-#include "crypto_vrf_ietfdraft13.h"
+#include "crypto_vrf_ietfdraft03.h"
 #include "export.h"
 
 #ifdef __cplusplus
@@ -27,27 +27,27 @@ static const unsigned char ONE = 0x01;
 static const unsigned char TWO = 0x02;
 static const unsigned char THREE = 0x03;
 
-#define crypto_vrf_PROOFBYTES crypto_vrf_ietfdraft13_BYTES
+#define crypto_vrf_PROOFBYTES crypto_vrf_ietfdraft03_BYTES
 SODIUM_EXPORT
-size_t crypto_vrf_bytes(void);
+size_t crypto_vrf_proofbytes(void);
 
-#define crypto_vrf_OUTPUTBYTES crypto_vrf_ietfdraft13_OUTPUTBYTES
+#define crypto_vrf_OUTPUTBYTES crypto_vrf_ietfdraft03_OUTPUTBYTES
 SODIUM_EXPORT
 size_t crypto_vrf_outputbytes(void);
 
-#define crypto_vrf_SEEDBYTES crypto_vrf_ietfdraft13_SEEDBYTES
+#define crypto_vrf_SEEDBYTES crypto_vrf_ietfdraft03_SEEDBYTES
 SODIUM_EXPORT
 size_t crypto_vrf_seedbytes(void);
 
-#define crypto_vrf_PUBLICKEYBYTES crypto_vrf_ietfdraft13_PUBLICKEYBYTES
+#define crypto_vrf_PUBLICKEYBYTES crypto_vrf_ietfdraft03_PUBLICKEYBYTES
 SODIUM_EXPORT
 size_t crypto_vrf_publickeybytes(void);
 
-#define crypto_vrf_SECRETKEYBYTES crypto_vrf_ietfdraft13_SECRETKEYBYTES
+#define crypto_vrf_SECRETKEYBYTES crypto_vrf_ietfdraft03_SECRETKEYBYTES
 SODIUM_EXPORT
 size_t crypto_vrf_secretkeybytes(void);
 
-#define crypto_vrf_PRIMITIVE "ietfdraft13"
+#define crypto_vrf_PRIMITIVE "ietfdraft03"
 SODIUM_EXPORT
 const char *crypto_vrf_primitive(void);
 
@@ -58,6 +58,11 @@ __attribute__ ((nonnull));
 SODIUM_EXPORT
 int crypto_vrf_seed_keypair(unsigned char *pk, unsigned char *sk,
                             const unsigned char *seed)
+__attribute__ ((nonnull));
+
+SODIUM_EXPORT
+int crypto_vrf_keypair_from_seed(unsigned char *pk, unsigned char *sk,
+                                const unsigned char *seed)
 __attribute__ ((nonnull));
 
 SODIUM_EXPORT
