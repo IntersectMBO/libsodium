@@ -158,7 +158,7 @@ test/default/stream3
 test/default/stream4
 test/default/verify1
 test/default/vrf
-test/default/vrf_03
+test/default/vrf_13
 test/default/vrf_batchcompat_13
 test/default/core_ed25519_h2c
 test/default/vrf_batchverify
