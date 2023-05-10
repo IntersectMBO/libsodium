@@ -41,7 +41,7 @@ int main(void)
         sodium_hex2bin(seed, 32,
                        test_data[i].seed, (size_t) -1U, NULL, NULL, NULL);
 
-        crypto_vrf_seed_keypair(pk, sk, seed);
+        crypto_vrf_keypair_from_seed(pk, sk, seed);
         printf("%s\n", sodium_bin2hex(pk_hex, sizeof pk_hex, pk, sizeof pk));
 
         if (crypto_vrf_prove(proof, sk, messages[i], i) != 0){
