@@ -114,6 +114,13 @@
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_pwhash\scryptsalsa208sha256\nosse\pwhash_scryptsalsa208sha256_nosse.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_pwhash\scryptsalsa208sha256\sse\pwhash_scryptsalsa208sha256_sse.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_verify\sodium\verify.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\crypto_vrf.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\ietfdraft03\vrf.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\ietfdraft03\verify.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\ietfdraft03\prove.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\ietfdraft13\vrf.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\ietfdraft13\verify.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_vrf\ietfdraft13\prove.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_auth\crypto_auth.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_auth\hmacsha512\auth_hmacsha512.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_auth\hmacsha512256\auth_hmacsha512256.c" />
@@ -183,6 +190,7 @@
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_core\ed25519\core_ed25519.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_core\ed25519\core_ristretto255.c" />
     <ClCompile Include="..\..\..\..\src\libsodium\crypto_core\ed25519\ref10\ed25519_ref10.c" />
+    <ClCompile Include="..\..\..\..\src\libsodium\crypto_core\ed25519\core_h2c.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\libsodium\crypto_generichash\blake2b\ref\blake2b-load-sse2.h" />
@@ -232,6 +240,9 @@
     <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_scalarmult.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_pwhash.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_verify_16.h" />
+    <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_vrf.h" />
+    <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_vrf_ietfdraft03.h" />
+    <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_vrf_ietfdraft13.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_stream_chacha20.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_stream_xsalsa20.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\include\sodium\crypto_core_hsalsa20.h" />
@@ -315,6 +326,7 @@
     <ClInclude Include="..\..\..\..\src\libsodium\crypto_core\ed25519\ref10\fe_51\fe.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\crypto_core\ed25519\ref10\fe_51\base2.h" />
     <ClInclude Include="..\..\..\..\src\libsodium\crypto_core\ed25519\ref10\fe_51\base.h" />
+    <ClInclude Include="..\..\..\..\src\libsodium\crypto_core\ed25519\core_h2c.h" />
     <ClInclude Include="..\..\resource.h" />
   </ItemGroup>
   <ItemGroup>
